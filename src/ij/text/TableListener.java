@@ -6,6 +6,7 @@ package ij.text;
 	*/
 	public interface TableListener {
 
+		
 	public void TableUpdated(TextPanel table, String event, int row);
 
 }
