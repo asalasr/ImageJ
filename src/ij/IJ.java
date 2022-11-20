@@ -458,7 +458,7 @@ public class IJ {
 			ImagePlus imp = WindowManager.getCurrentImage();
 			ImageCanvas ic = imp!=null?imp.getCanvas():null;
 			if (ic!=null)
-				ic.setShowCursorStatus(s.length()==0?true:false);
+				ic.setShowCursorStatus(s.length() == 0);
 		}
 	}
 	
@@ -507,7 +507,6 @@ public class IJ {
 		int delay = (int)Tools.parseDouble(options, defaultDelay);
 		if (delay>8000)
 			delay = 8000;
-		String colorString = null;
 		ImageJ ij = IJ.getInstance();
 		if (flashImage) {
 			Color previousColor = imp.getWindow().getBackground();
@@ -994,11 +993,8 @@ public class IJ {
 			return ""+n;
 		if (n==Float.MAX_VALUE) // divide by 0 in FloatProcessor
 			return "3.4e38";
-		double np = n;
-		if (n<0.0) np = -n;
 		if (decimalPlaces<0) synchronized(IJ.class) {
 			decimalPlaces = -decimalPlaces;
-			if (decimalPlaces>9) decimalPlaces=9;
 			if (sf==null) {
 				if (dfs==null)
 					dfs = new DecimalFormatSymbols(Locale.US);
@@ -1015,7 +1011,6 @@ public class IJ {
 			}
 			return sf[decimalPlaces].format(n); // use scientific notation
 		}
-		if (decimalPlaces<0) decimalPlaces = 0;
 		if (decimalPlaces>9) decimalPlaces = 9;
 		return df[decimalPlaces].format(n);
 	}
@@ -1098,14 +1093,9 @@ public class IJ {
 				shiftDown=true;
 				if (debugMode) beep();
 				break;
-			case KeyEvent.VK_SPACE: {
-				spaceDown=true;
-				ImageWindow win = WindowManager.getCurrentWindow();
-				//if (win!=null) win.getCanvas().setCursor(-1,-1,-1, -1);
-				break;
-			}
 			case KeyEvent.VK_ESCAPE: {
 				escapePressed = true;
+				spaceDown=true;
 				break;
 			}
 		}
@@ -1119,8 +1109,6 @@ public class IJ {
 			case KeyEvent.VK_SHIFT: shiftDown=false; if (debugMode) beep(); break;
 			case KeyEvent.VK_SPACE:
 				spaceDown=false;
-				ImageWindow win = WindowManager.getCurrentWindow();
-				//if (win!=null) win.getCanvas().setCursor(-1,-1,-1,-1);
 				break;
 			case ALL_KEYS:
 				shiftDown=controlDown=altDown=spaceDown=false;
@@ -1162,26 +1150,6 @@ public class IJ {
 	public static int javaVersion() {
 		return javaVersion;
 	}
-	
-	/** Always returns true. */
-	public static boolean isJava2() {
-		return true;
-	}
-	
-	/** Always returns true. */
-	public static boolean isJava14() {
-		return true;
-	}
-
-	/** Always returns true. */
-	public static boolean isJava15() {
-		return true;
-	}
-
-	/** Returns true if ImageJ is running on a Java 1.6 or greater JVM. */
-	public static boolean isJava16() {
-		return javaVersion >= 6;
-	}
 
 	/** Returns true if ImageJ is running on a Java 1.7 or greater JVM. */
 	public static boolean isJava17() {
@@ -1201,11 +1169,6 @@ public class IJ {
 	/** Returns true if ImageJ is running on Linux. */
 	public static boolean isLinux() {
 		return isLinux;
-	}
-
-	/** Obsolete; always returns false. */
-	public static boolean isVista() {
-		return false;
 	}
 	
 	/** Returns true if ImageJ is running a 64-bit version of Java. */
@@ -1999,49 +1962,6 @@ public class IJ {
 		else
 			return "";
 	}
-	
-	/* 
-	public static void addRootCA() throws Exception {
-		String path = "/Users/wayne/Downloads/Certificates/lets-encrypt-x1-cross-signed.pem";
-		InputStream fis = new BufferedInputStream(new FileInputStream(path));
-		Certificate ca = CertificateFactory.getInstance("X.509").generateCertificate(fis);
-		KeyStore ks = KeyStore.getInstance(KeyStore.getDefaultType());
-		ks.load(null, null);
-		ks.setCertificateEntry(Integer.toString(1), ca);
-		TrustManagerFactory tmf = TrustManagerFactory.getInstance(TrustManagerFactory.getDefaultAlgorithm());
-		tmf.init(ks);
-		SSLContext ctx = SSLContext.getInstance("TLS");
-		ctx.init(null, tmf.getTrustManagers(), null); 
-		HttpsURLConnection.setDefaultSSLSocketFactory(ctx.getSocketFactory());
-	}
-	*/
-	
-	/*
-	// Create a new trust manager that trust all certificates
-	// http://stackoverflow.com/questions/10135074/download-file-from-https-server-using-java
-	private static void trustAllCerts() {
-		trustManagerCreated = true;
-		TrustManager[] trustAllCerts = new TrustManager[] {
-			new X509TrustManager() {
-				public java.security.cert.X509Certificate[] getAcceptedIssuers() {
-					return null;
-				}
-				public void checkClientTrusted (java.security.cert.X509Certificate[] certs, String authType) {
-				}
-				public void checkServerTrusted (java.security.cert.X509Certificate[] certs, String authType) {
-				}
-			}
-		};
-		// Activate the new trust manager
-		try {
-			SSLContext sc = SSLContext.getInstance("SSL");
-			sc.init(null, trustAllCerts, new java.security.SecureRandom());
-			HttpsURLConnection.setDefaultSSLSocketFactory(sc.getSocketFactory());
-		} catch (Exception e) {
-			IJ.log(""+e);
-		}
-	}
-	*/
 
 	/** Saves the current image, lookup table, selection or text window to the specified file path. 
 		The path must end in ".tif", ".jpg", ".gif", ".zip", ".raw", ".avi", ".bmp", ".fits", ".pgm", ".png", ".lut", ".roi" or ".txt".  */

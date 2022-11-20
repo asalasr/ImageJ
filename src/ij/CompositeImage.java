@@ -30,7 +30,7 @@ public class CompositeImage extends ImagePlus {
 	int currentFrame = 1;
 	boolean singleChannel;
 	boolean[] active = new boolean[MAX_CHANNELS];
-	int mode = COLOR;
+	int mode;
 	int bitDepth;
 	double[] displayRanges;
 	byte[][] channelLuts;
@@ -201,10 +201,8 @@ public class CompositeImage extends ImagePlus {
 	public synchronized void updateImage() {
 		int imageSize = width*height;
 		int nChannels = getNChannels();
-		int redValue, greenValue, blueValue;
 		int ch = getChannel();
-		
-		//IJ.log("updateImage: "+ch+"/"+nChannels+" "+currentSlice+" "+currentFrame);
+
 		if (ch>nChannels) ch = nChannels;
 		boolean newChannel = false;
 		if (ch-1!=currentChannel) {
@@ -408,20 +406,7 @@ public class CompositeImage extends ImagePlus {
 		}   
     }
        
-	void createImage() {
-		if (imageSource==null) {
-			rgbCM = new DirectColorModel(32, 0xff0000, 0xff00, 0xff);
-			imageSource = new MemoryImageSource(width, height, rgbCM, rgbPixels, 0, width);
-			imageSource.setAnimated(true);
-			imageSource.setFullBufferUpdates(true);
-			awtImage = Toolkit.getDefaultToolkit().createImage(imageSource);
-			newPixels = false;
-		} else if (newPixels){
-			imageSource.newPixels(rgbPixels, rgbCM, 0, width);
-			newPixels = false;
-		} else
-			imageSource.newPixels();	
-	}
+
 
 	void createBufferedImage() {
 		if (rgbSampleModel==null)
@@ -760,7 +745,6 @@ public class CompositeImage extends ImagePlus {
 		rgbPixels = null;
 		awtImage = null;
 		channelLuts = null;
-		boolean[] active = new boolean[MAX_CHANNELS];
 	}
 
 }

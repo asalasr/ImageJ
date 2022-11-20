@@ -109,7 +109,6 @@ public class ImageJ extends Frame implements ActionListener,
 	private Panel statusBar;
 	private ProgressBar progressBar;
 	private JLabel statusLine;
-	private boolean firstTime = true;
 	private java.applet.Applet applet; // null if not running as an applet
 	private Vector classes = new Vector();
 	private boolean exitWhenQuitting;
@@ -117,7 +116,6 @@ public class ImageJ extends Frame implements ActionListener,
 	private boolean quitMacro;
 	private long keyPressedTime, actionPerformedTime;
 	private String lastKeyCommand;
-	private boolean embedded;
 	private boolean windowClosed;
 	private static String commandName;
 	private static boolean batchMode;
@@ -153,7 +151,6 @@ public class ImageJ extends Frame implements ActionListener,
 			useExceptionHandler = true;
 		}
 		if (IJ.debugMode) IJ.log("ImageJ starting in debug mode: "+mode);
-		embedded = applet==null && (mode==EMBEDDED||mode==NO_SHOW);
 		this.applet = applet;
 		String err1 = Prefs.load(this, applet);
 		setBackground(backgroundColor);
@@ -191,7 +188,6 @@ public class ImageJ extends Frame implements ActionListener,
 		m.installStartupMacroSet(); //add custom tools
  		
 		Point loc = getPreferredLocation();
-		Dimension tbSize = toolbar.getPreferredSize();
 		setCursor(Cursor.getDefaultCursor()); // work-around for JDK 1.1.8 bug
 		if (mode!=NO_SHOW) {
 			if (IJ.isWindows()) try {setIcon();} catch(Exception e) {}
@@ -328,25 +324,9 @@ public class ImageJ extends Frame implements ActionListener,
     void doCommand(String name) {
 		new Executer(name, null);
     }
-        
-	public void runFilterPlugIn(Object theFilter, String cmd, String arg) {
-		new PlugInFilterRunner(theFilter, cmd, arg);
-	}
-        
+
 	public Object runUserPlugIn(String commandName, String className, String arg, boolean createNewLoader) {
 		return IJ.runUserPlugIn(commandName, className, arg, createNewLoader);	
-	} 
-	
-	/** Return the current list of modifier keys. */
-	public static String modifiers(int flags) { //?? needs to be moved
-		String s = " [ ";
-		if (flags == 0) return "";
-		if ((flags & Event.SHIFT_MASK) != 0) s += "Shift ";
-		if ((flags & Event.CTRL_MASK) != 0) s += "Control ";
-		if ((flags & Event.META_MASK) != 0) s += "Meta ";
-		if ((flags & Event.ALT_MASK) != 0) s += "Alt ";
-		s += "] ";
-		return s;
 	}
 
 	/** Handle menu events. */
@@ -355,7 +335,7 @@ public class ImageJ extends Frame implements ActionListener,
 			MenuItem item = (MenuItem)e.getSource();
 			String cmd = e.getActionCommand();
 			Frame frame = WindowManager.getFrontWindow();
-			if (frame!=null && (frame instanceof Fitter)) {
+			if ((frame instanceof Fitter)) {
 				((Fitter)frame).actionPerformed(e);
 				return;
 			}
@@ -392,7 +372,7 @@ public class ImageJ extends Frame implements ActionListener,
 		String cmd = e.getItem().toString();
 		if ("Autorun Examples".equals(cmd)) // Examples>Autorun Examples
 			Prefs.autoRunExamples = e.getStateChange()==1;
-		else if ((Menu)parent==Menus.window)
+		else if (parent ==Menus.window)
 			WindowManager.activateWindow(cmd, item);
 		else
 			doCommand(cmd);
@@ -445,7 +425,7 @@ public class ImageJ extends Frame implements ActionListener,
 		
 		if (imp!=null && !meta && ((keyChar>=32 && keyChar<=255) || keyChar=='\b' || keyChar=='\n')) {
 			Roi roi = imp.getRoi();
-			if (roi!=null && roi instanceof TextRoi) {
+			if (roi instanceof TextRoi) {
 				if (imp.getOverlay()!=null && (control || alt || meta)
 				&& (keyCode==KeyEvent.VK_BACK_SPACE || keyCode==KeyEvent.VK_DELETE)) {
 					if (deleteOverlayRoi(imp))
@@ -470,9 +450,9 @@ public class ImageJ extends Frame implements ActionListener,
 			Hashtable macroShortcuts = Menus.getMacroShortcuts();
 			if (macroShortcuts.size()>0) {
 				if (shift)
-					cmd = (String)macroShortcuts.get(Integer.valueOf(keyCode+200));
+					cmd = (String)macroShortcuts.get(keyCode + 200);
 				else
-					cmd = (String)macroShortcuts.get(Integer.valueOf(keyCode));
+					cmd = (String)macroShortcuts.get(keyCode);
 				if (cmd!=null) {
 					commandName = cmd;
 					MacroInstaller.runMacroShortcut(cmd);
@@ -490,9 +470,9 @@ public class ImageJ extends Frame implements ActionListener,
 		if ((!Prefs.requireControlKey||control||meta||functionKey||numPad) && keyChar!='+') {
 			Hashtable shortcuts = Menus.getShortcuts();
 			if (shift && !functionKey)
-				cmd = (String)shortcuts.get(Integer.valueOf(keyCode+200));
+				cmd = (String)shortcuts.get(keyCode + 200);
 			else
-				cmd = (String)shortcuts.get(Integer.valueOf(keyCode));
+				cmd = (String)shortcuts.get(keyCode);
 		}
 		
 		if (cmd==null) {
@@ -608,11 +588,11 @@ public class ImageJ extends Frame implements ActionListener,
 		if (title!=null && title.equals("ROI Manager"))
 			return true;
 		// Control Panel?
-		if (frame!=null && frame instanceof javax.swing.JFrame)
+		if (frame instanceof javax.swing.JFrame)
 			return true;
 		// Channels dialog?
 		Window window = WindowManager.getActiveWindow();
-		title = window!=null&&(window instanceof Dialog)?((Dialog)window).getTitle():null;
+		title = (window instanceof Dialog) ?((Dialog)window).getTitle():null;
 		if (title!=null && title.equals("Channels"))
 			return true;
 		ImageWindow win = imp.getWindow();
@@ -625,8 +605,6 @@ public class ImageJ extends Frame implements ActionListener,
 	public void keyTyped(KeyEvent e) {
 		char keyChar = e.getKeyChar();
 		int flags = e.getModifiers();
-		//if (IJ.debugMode) IJ.log("keyTyped: char=\"" + keyChar + "\" (" + (int)keyChar 
-		//	+ "), flags= "+Integer.toHexString(flags)+ " ("+KeyEvent.getKeyModifiersText(flags)+")");
 		if (keyChar=='\\' || keyChar==171 || keyChar==223) {
 			if (((flags&Event.ALT_MASK)!=0))
 				doCommand("Animation Options...");
@@ -742,7 +720,7 @@ public class ImageJ extends Frame implements ActionListener,
 				commandLine = true;
 				args[i+1] = null;
 			} else if (arg.startsWith("-port")) {
-				int delta = (int)Tools.parseDouble(arg.substring(5, arg.length()), 0.0);
+				int delta = (int)Tools.parseDouble(arg.substring(5), 0.0);
 				commandLine = true;
 				if (delta==0)
 					mode = EMBEDDED;
@@ -811,11 +789,6 @@ public class ImageJ extends Frame implements ActionListener,
 	/** Returns the command line arguments passed to ImageJ. */
 	public static String[] getArgs() {
 		return arguments;
-	}
-
-	/** ImageJ calls System.exit() when qutting when 'exitWhenQuitting' is true.*/
-	public void exitWhenQuitting(boolean ewq) {
-		exitWhenQuitting = ewq;
 	}
 	
 	/** Quit using a separate thread, hopefully avoiding thread deadlocks. */
