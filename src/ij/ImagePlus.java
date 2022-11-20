@@ -370,9 +370,7 @@ public class ImagePlus implements ImageObserver, Measurements, Cloneable {
 			return;
 		boolean[] active = ((CompositeImage)this).getActiveChannels();
 		for (int i=0; i<active.length; i++) {
-			boolean b = false;
-			if (channels.length()>i && channels.charAt(i)=='1')
-				b = true;
+			boolean b = channels.length() > i && channels.charAt(i) == '1';
 			active[i] = b;
 		}
 		updateAndDraw();
@@ -811,7 +809,6 @@ public class ImagePlus implements ImageObserver, Measurements, Cloneable {
 		the display. Set 'title' to null to leave the title unchanged. */
     public void setStack(String title, ImageStack newStack) {
 		int bitDepth1 = getBitDepth();
-		int previousStackSize = getStackSize();
 		int newStackSize = newStack.getSize();
 		if (newStackSize==0)
 			throw new IllegalArgumentException("Stack is empty");		
@@ -2194,8 +2191,7 @@ public class ImagePlus implements ImageObserver, Measurements, Cloneable {
 			gd.setOKLabel("Keep");
 			gd.setCancelLabel("Delete");
 			gd.showDialog();
-			if (gd.wasOKed())
-				return false;
+			return !gd.wasOKed();
 		}
 		return true;
 	}
@@ -2905,8 +2901,6 @@ public class ImagePlus implements ImageObserver, Measurements, Cloneable {
 	 public void paste() {
 		if (clipboard==null)
 			return;
-		int cType = clipboard.getType();
-		int iType = getType();
         int w = clipboard.getWidth();
         int h = clipboard.getHeight();
 		Roi cRoi = clipboard.getRoi();
@@ -3274,10 +3268,7 @@ public class ImagePlus implements ImageObserver, Measurements, Cloneable {
 		Overlay o = getOverlay();
 		if (o==null || o.size()!=1)
 			return false;
-		if ("Pixel Inspector".equals(o.get(0).getName()))
-			return true;
-		else
-			return false;
+		return "Pixel Inspector".equals(o.get(0).getName());
 	}
 
 	private void setPointScale(Roi roi2, Overlay overlay2) {
