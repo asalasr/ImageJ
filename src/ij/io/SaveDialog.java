@@ -126,6 +126,7 @@ public class SaveDialog {
 				JOptionPane.YES_NO_OPTION, JOptionPane.WARNING_MESSAGE);
 			if (ret!=JOptionPane.OK_OPTION) f = null;
 		}
+		
 		if (f==null)
 			Macro.abort();
 		else {
