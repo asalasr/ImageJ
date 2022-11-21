@@ -461,9 +461,8 @@ public class Calibrator implements PlugInFilter, Measurements, ActionListener {
 				sb.append(""+ip.getPixelValue(1, i));
 				sb.append("\n");
 			}
-			s2 = new String(sb);
-		} else
-			s2 = new String(sb);
+		}
+		s2 = new String(sb);
 		if (s1!=null) {
 			TextArea ta1 = gd.getTextArea1();
 			ta1.selectAll();

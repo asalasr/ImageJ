@@ -2777,10 +2777,6 @@ public abstract class ImageProcessor implements Cloneable {
 	 * including histogram, area, mean, min and max, standard deviation,
 	 * and mode. Use the setRoi(Roi) method to limit statistics to
 	 * a non-rectangular area.
-	 * @return an {@link ij.process.ImageStatistics} object
-	 * @see #setRoi(Roi)
-	 * @see #getStatistics
-	 * @see ij.ImagePlus#getStatistics
 	*/
 	public ImageStatistics getStats() {
 		return ImageStatistics.getStatistics(this);
@@ -2790,10 +2786,6 @@ public abstract class ImageProcessor implements Cloneable {
 	 * statistics for this image or ROI but it is up to 70 times
 	 * slower than getStats(). Use the setRoi(Roi) method to
 	 * limit statistics to a non-rectangular area.
-	 * @return an {@link ij.process.ImageStatistics} object
-	 * @see #setRoi(Roi)
-	 * @see #getStats
-	 * @see ij.ImagePlus#getAllStatistics
 	*/
 	public ImageStatistics getStatistics() {
 		return ImageStatistics.getStatistics(this, Measurements.ALL_STATS, null);
@@ -2812,7 +2804,6 @@ public abstract class ImageProcessor implements Cloneable {
 		ij.plugin.filter.ImageMath.applyMacro(this, macro, false);
 	}
 
-	/* Returns the PlugInFilter slice number. */
 	public int getSliceNumber() {
 		if (sliceNumber<1)
 			return 1;

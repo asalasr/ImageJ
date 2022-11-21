@@ -2992,12 +2992,6 @@ public class ImagePlus implements ImageObserver, Measurements, Cloneable {
 	public static void resetClipboard() {
 		clipboard = null;
 	}
-	
-	/** Copies the contents of the current selection, or the entire
-		image if there is no selection, to the system clipboard. */
-	public void copyToSystem() {
-		Clipboard.copyToSystem(this);
-	}
 
 	protected void notifyListeners(final int id) {
 		if (temporary)

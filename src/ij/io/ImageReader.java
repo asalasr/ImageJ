@@ -945,9 +945,7 @@ public class ImageReader {
 			} else {
 				if (oldCode==-1) oldCode=0;
 				if (code<nextSymbol) {
-					// code is in table
 					out.add(symbolTable[code]);
-					// add string to table
 					ByteVector symbol = new ByteVector(byteBuffer1);
 					symbol.add(symbolTable[oldCode]);
 					symbol.add(symbolTable[code][0]);

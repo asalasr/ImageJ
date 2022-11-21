@@ -2400,9 +2400,6 @@ public class IJ {
 			throw new RuntimeException(Macro.MACRO_CANCELED);
 	}
 
-	static void setClassLoader(ClassLoader loader) {
-		classLoader = loader;
-	}
 
 	public static void resetClassLoader() {
 		classLoader = null;

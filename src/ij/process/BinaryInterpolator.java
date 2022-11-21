@@ -203,14 +203,13 @@ public class BinaryInterpolator {
 			return true;
 		if (y >= h - 1 || pixels[x + w * (y + 1)] == 0)
 			return true;
-		if (x <= 0 || y <= 0 || pixels[x - 1 + w * (y - 1)] == 0)
+		if ( pixels[x - 1 + w * (y - 1)] == 0)
 			return true;
-		if (x <= 0 || y >= h - 1 || pixels[x - 1 + w * (y + 1)] == 0)
+		if ( pixels[x - 1 + w * (y + 1)] == 0)
 			return true;
-		if (x >= w - 1 || y <= 0 || pixels[x + 1 + w * (y - 1)] == 0)
+		if (  pixels[x + 1 + w * (y - 1)] == 0)
 			return true;
-		if (x >= w - 1 || y >= h - 1 ||
-				pixels[x + 1 + w * (y + 1)] == 0)
+		if ( pixels[x + 1 + w * (y + 1)] == 0)
 			return true;
 		return false;
 	}

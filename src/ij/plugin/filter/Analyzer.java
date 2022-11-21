@@ -224,12 +224,9 @@ public class Analyzer implements PlugInFilter, Measurements {
 	
 	void setOptions(GenericDialog gd) {
 		int oldMeasurements = systemMeasurements;
-		int previous = 0;
-		boolean b = false;
+		boolean b;
 		for (int i=0; i<list.length; i++) {
-			//if (list[i]!=previous)
 			b = gd.getNextBoolean();
-			previous = list[i];
 			if (b)
 				systemMeasurements |= list[i];
 			else

@@ -1025,7 +1025,7 @@ public class PolygonRoi extends Roi {
 	 *  and 'segmentLength' should be in calibrated units.
 	 *  Returns null if an input array is null, or the number of points is 0 */
 	static float[][] getEquidistantPoints(float[] xpoints, float[] ypoints, int npoints, double segmentLength, ImagePlus imp) {
-		if (xpoints==null || xpoints==null || npoints <= 0) return null;
+		if (xpoints==null || npoints <= 0) return null;
 		if (xpoints.length < npoints) npoints = xpoints.length;	// arguments might be inconsistent due to asynchronous modification
 		if (ypoints.length < npoints) npoints = ypoints.length;
 		double length = getLength(xpoints, ypoints, npoints, /*closeShape=*/false, imp);

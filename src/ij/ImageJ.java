@@ -320,10 +320,6 @@ public class ImageJ extends Frame implements ActionListener,
 		new Executer(name, null);
     }
 
-	public Object runUserPlugIn(String commandName, String className, String arg, boolean createNewLoader) {
-		return IJ.runUserPlugIn(commandName, className, arg, createNewLoader);	
-	}
-
 	/** Handle menu events. */
 	public void actionPerformed(ActionEvent e) {
 		if ((e.getSource() instanceof MenuItem)) {
