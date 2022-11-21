@@ -5,7 +5,6 @@ import ij.process.*;
 import ij.gui.*;
 import java.awt.*;
 import ij.measure.*;
-import ij.plugin.filter.*;
 import ij.plugin.frame.Recorder;
 import java.awt.event.*;
 import java.util.*;

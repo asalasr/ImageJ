@@ -19,11 +19,7 @@ import java.util.*;
 import java.awt.*;	
 import java.applet.Applet;
 import java.io.*;
-import java.lang.reflect.*;
 import java.net.*;
-import javax.net.ssl.*;
-import java.security.cert.*;
-import java.security.KeyStore;
 import java.nio.ByteBuffer;
 import java.math.RoundingMode;
 
@@ -2403,13 +2399,13 @@ public class IJ {
 		if ((ij!=null || Interpreter.isBatchMode()) && macroInterpreter==null)
 			throw new RuntimeException(Macro.MACRO_CANCELED);
 	}
-	
+
 	static void setClassLoader(ClassLoader loader) {
 		classLoader = loader;
 	}
 
 	public static void resetClassLoader() {
-		setClassLoader(null);
+		classLoader = null;
 	}
 
 	/** Displays a stack trace. Use the setExceptionHandler 

@@ -5,8 +5,6 @@ import ij.process.*;
 import ij.plugin.ContrastEnhancer;
 import ij.util.ThreadUtil;
 import java.awt.*;
-import java.awt.event.*;
-import java.util.Arrays;
 import java.util.concurrent.*;
 import java.util.concurrent.atomic.*;
 

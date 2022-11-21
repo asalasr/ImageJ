@@ -25,7 +25,6 @@
 package ij.plugin;
 
 import ij.*;
-import ij.text.*;
 import ij.plugin.frame.Editor;
 import ij.process.ImageProcessor;
 import ij.gui.GUI;
@@ -37,7 +36,6 @@ import java.io.File;
 import javax.swing.*;
 import javax.swing.table.*;
 import javax.swing.event.*;
-import javax.swing.event.DocumentEvent;
 
 public class CommandFinder implements PlugIn, ActionListener, WindowListener, KeyListener, ItemListener, MouseListener {
 

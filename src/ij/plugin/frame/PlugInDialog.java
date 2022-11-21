@@ -1,7 +1,7 @@
 package ij.plugin.frame;
 import java.awt.*;
 import java.awt.event.*;
-import ij.gui.ImageWindow;
+
 import ij.*;
 import ij.plugin.*;
 

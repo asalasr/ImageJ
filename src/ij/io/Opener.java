@@ -8,16 +8,14 @@ import ij.text.TextWindow;
 import ij.util.Java2;
 import ij.measure.ResultsTable;
 import ij.macro.Interpreter;
-import ij.util.Tools;
+
 import java.awt.*;
 import java.awt.image.*;
 import java.io.*;
-import java.net.URL;
 import java.net.*;
 import java.util.*;
 import java.util.zip.*;
 import javax.swing.*;
-import javax.swing.filechooser.*;
 import java.awt.event.KeyEvent;
 import javax.imageio.ImageIO;
 import java.lang.reflect.Method;

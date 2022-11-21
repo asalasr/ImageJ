@@ -3,12 +3,10 @@ import ij.*;
 import ij.gui.*;
 import ij.process.*;
 import ij.measure.*;
-import ij.plugin.filter.Analyzer;
 
 import java.awt.*;
 import java.awt.image.*;
 import java.awt.event.*;
-import java.util.*;
 
 /** This plugin generates gel profile plots that can be analyzed using
 the wand tool. It is similar to the "Gel Plotting Macros" in NIH Image. */

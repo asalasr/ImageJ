@@ -1,7 +1,5 @@
 package ij.plugin.filter;
 
-import java.awt.*;
-import java.awt.image.*;
 import java.io.*;
 import ij.*;
 import ij.process.*;

@@ -1,9 +1,9 @@
 package ij.gui;
 
 import java.awt.*;
-import ij.process.*;
+
 import ij.*;
-import ij.util.*;
+
 import java.awt.event.*;
 
 

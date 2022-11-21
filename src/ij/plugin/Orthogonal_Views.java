@@ -7,8 +7,7 @@ import java.awt.*;
 import java.awt.image.*;
 import java.awt.event.*;
 import java.awt.geom.*;
-import java.util.*;
- 
+
 /**
  * This plugin projects dynamically orthogonal XZ and YZ views of a stack. 
  * The output images are calibrated, which allows measurements to be performed more easily. 

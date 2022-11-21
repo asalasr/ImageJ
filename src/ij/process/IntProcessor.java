@@ -1,6 +1,5 @@
 package ij.process;
 
-import java.util.*;
 import java.awt.*;
 import java.awt.image.*;
 

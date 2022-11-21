@@ -2,7 +2,6 @@ package ij.plugin;
 
 import ij.*;
 import ij.process.*;
-import ij.gui.GenericDialog;
 import ij.util.ThreadUtil;
 import ij.plugin.RGBStackMerge;
 import ij.gui.*;

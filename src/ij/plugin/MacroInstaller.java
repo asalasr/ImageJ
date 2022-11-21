@@ -5,10 +5,7 @@ import java.awt.event.*;
 import ij.*;
 import ij.gui.*;
 import ij.macro.*;
-import ij.text.*;
-import ij.util.Tools;
 import ij.io.*;
-import ij.macro.MacroConstants;
 import ij.plugin.frame.*;
                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 import java.util.*;                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            
 

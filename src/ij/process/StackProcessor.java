@@ -5,7 +5,6 @@ import ij.process.*;
 import ij.macro.Interpreter;
 import ij.util.ArrayUtil;
 import ij.plugin.Filters3D;
-import java.util.concurrent.atomic.AtomicInteger;
 
 
 /** This class processes stacks. */

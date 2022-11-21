@@ -1,6 +1,5 @@
 package ij.gui;
 import java.awt.*;
-import java.util.Vector;
 import java.awt.geom.Rectangle2D;
 import java.util.*;
 import ij.*;

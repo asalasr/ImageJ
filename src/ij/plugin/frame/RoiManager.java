@@ -24,7 +24,6 @@ import ij.plugin.*;
 import ij.util.*;
 import ij.macro.*;
 import ij.measure.*;
-import ij.plugin.OverlayCommands;
 
 /** This plugin implements the Analyze/Tools/ROI Manager command. */
 public class RoiManager extends PlugInFrame implements ActionListener, ItemListener, MouseListener, MouseWheelListener, ListSelectionListener, Iterable<Roi> {

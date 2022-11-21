@@ -6,7 +6,6 @@ import ij.measure.*;
 import ij.plugin.ContrastEnhancer;
 import ij.plugin.frame.Recorder;
 import java.awt.*;
-import java.util.*;
 
 
 /** This class implements the Process/FFT/Custom Filter command. */

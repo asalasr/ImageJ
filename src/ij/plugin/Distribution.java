@@ -8,7 +8,6 @@ import ij.util.Tools;
 import java.util.*;
 import java.awt.*;
 import java.awt.event.*;
-import java.util.Vector;
 
 /**
 This plugin implements the Analyze/Distribution command.

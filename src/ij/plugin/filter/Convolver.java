@@ -7,7 +7,6 @@ import ij.plugin.TextReader;
 import ij.plugin.frame.Recorder;
 import ij.util.Tools;
 import java.awt.*;
-import java.util.*;
 import java.awt.event.*;
 import java.io.*;
 

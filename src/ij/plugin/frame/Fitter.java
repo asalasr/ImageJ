@@ -7,7 +7,6 @@ import java.awt.datatransfer.*;
 import ij.*;
 import ij.plugin.PlugIn;
 import ij.plugin.frame.*;
-import ij.text.*;
 import ij.gui.*;
 import ij.util.*;
 import ij.io.*;

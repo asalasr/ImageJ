@@ -1,10 +1,8 @@
 package ij.plugin;
 import ij.*;
-import ij.gui.*;
 import ij.io.*;
 import ij.macro.*;
 import java.io.*;
-import java.net.URL;
 import java.net.*;
 import java.util.*;
 

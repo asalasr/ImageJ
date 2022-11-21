@@ -3,7 +3,6 @@ import ij.*;
 import ij.gui.*;
 import ij.process.*;
 import ij.plugin.*;
-import ij.util.Tools;
 
 /** The plugin implements the Image/Stacks/Tools/Montage to Stack command.
 	It creates a w*h image stack from an wxh image montage.

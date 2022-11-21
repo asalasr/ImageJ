@@ -10,8 +10,6 @@ import ij.measure.*;
 import ij.util.Tools;
 import ij.plugin.frame.Recorder;
 import ij.plugin.filter.*;
-import ij.plugin.ChannelSplitter;
-import ij.plugin.Thresholder;
 
 /** Adjusts the lower and upper threshold levels of the active image. This
 	class is multi-threaded to provide a more responsive user interface. */

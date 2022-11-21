@@ -3,7 +3,6 @@ import ij.*;
 import ij.plugin.frame.RoiManager;
 import java.awt.*;
 import java.awt.event.*;
-import java.lang.reflect.*;
 
 
 /**

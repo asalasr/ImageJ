@@ -1,7 +1,5 @@
 package ij.plugin;
 
-import ij.*;
-
 
 /** This plugin displays the contents of a text file in a window. */
 public class TextFileReader implements PlugIn {

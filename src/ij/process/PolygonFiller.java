@@ -1,6 +1,6 @@
 package ij.process;
 import ij.*;
-import ij.gui.*;
+
 import java.awt.Rectangle;
 
 

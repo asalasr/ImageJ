@@ -4,7 +4,6 @@ import ij.process.*;
 import ij.gui.*;
 import ij.measure.Calibration;
 import java.awt.*;
-import java.awt.image.*;
 
 /** Implements the Flip and Rotate commands in the Image/Transform submenu. */
 public class Transformer implements PlugInFilter {	

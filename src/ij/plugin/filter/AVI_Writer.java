@@ -7,7 +7,6 @@ import ij.plugin.Animator;
 import java.awt.*;
 import java.awt.image.*;
 import java.io.*;
-import java.util.*;
 import javax.imageio.ImageIO;
 
 /**

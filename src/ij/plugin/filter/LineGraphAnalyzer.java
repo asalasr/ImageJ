@@ -2,7 +2,6 @@ package ij.plugin.filter;  //##
 import ij.*;
 import ij.gui.*;
 import ij.process.*;
-import ij.plugin.filter.ParticleAnalyzer;
 import ij.measure.*;
 import ij.util.*;
 import java.awt.Rectangle;

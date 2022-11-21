@@ -11,8 +11,6 @@ import ij.gui.ShapeRoi;
 import ij.process.*;
 
 import java.awt.Polygon;
-import java.awt.Rectangle;
-import java.awt.geom.Area;
 import java.awt.geom.GeneralPath;
 import java.util.ArrayList;
 
