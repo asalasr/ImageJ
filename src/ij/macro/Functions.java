@@ -7897,32 +7897,6 @@ public class Functions implements MacroConstants, Measurements {
 		return null;
 	}
 
-	/*
-	private String getRoiPosition(Roi roi) {
-		Variable channel = getFirstVariable();
-		Variable slice = getNextVariable();
-		Variable frame = getLastVariable();
-		int c = roi.getCPosition();
-		int z = roi.getZPosition();
-		int t = roi.getTPosition();
-		channel.setValue(c);
-		slice.setValue(z);
-		frame.setValue(t);
-		return null;
-	}
-
-	private String setRoiPosition(ImagePlus imp, Roi roi) {
-		int channel = (int)getFirstArg();
-		int slice = (int)getNextArg();
-		int frame = (int)getLastArg();
-		if (channel<=1 && frame<=1 && !imp.isHyperStack())
-			roi.setPosition(slice);
-		else
-			roi.setPosition(channel, slice, frame);
-		return null;
-	}
-	*/
-
 	private Color getRoiColor() {
 		interp.getLeftParen();
 		if (isStringArg()) {

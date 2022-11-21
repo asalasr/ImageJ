@@ -526,8 +526,6 @@ public class MaximumFinder implements ExtendedPlugInFilter, DialogListener {
             outIp = make8bit(ip, typeP, isEDM, globalMin, globalMax, threshold);
             //if (IJ.debugMode) new ImagePlus("pixel types precleanup", typeP.duplicate()).show();
             cleanupMaxima(outIp, typeP, maxPoints);     //eliminate all the small maxima (i.e. those outside MAX_AREA)
-            //if (IJ.debugMode) new ImagePlus("pixel types postcleanup", typeP).show();
-            //if (IJ.debugMode) new ImagePlus("pre-watershed", outIp.duplicate()).show();
             if (!watershedSegment(outIp))               //do watershed segmentation
                 return null;                            //if user-cancelled, return
             if (!isEDM) cleanupExtraLines(outIp);       //eliminate lines due to local minima (none in EDM)
@@ -939,8 +937,6 @@ public class MaximumFinder implements ExtendedPlugInFilter, DialogListener {
                                 break;              //...or a level not lower, but touching a "true" maximum
                             } else if ((pixels[offset2]&255)>=loLevel && (types[offset2]&ELIMINATED)==0) {
                                 pList[listLen] = offset2;
-                                //xList[listLen] = x+DIR_X_OFFSET[d];
-                                //yList[listLen] = x+DIR_Y_OFFSET[d];
                                 listLen++;          //we have found a new point to be processed
                                 types[offset2] |= LISTED;
                             }

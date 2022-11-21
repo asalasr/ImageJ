@@ -220,9 +220,7 @@ public class PlugInFilterRunner implements Runnable, DialogListener {
 			if (min1!=ImageProcessor.NO_THRESHOLD && (min1!=min2||max1!=max2))
 				ip.setThreshold(min1, max1, ImageProcessor.NO_LUT_UPDATE);
 		}
-		//float[] cTable = imp.getCalibration().getCTable();
-		//ip.setCalibrationTable(cTable);
-	}
+    }
 
 	/**
 	 * Process a single image with the PlugInFilter.

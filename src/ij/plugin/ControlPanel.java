@@ -55,9 +55,7 @@ public class ControlPanel implements PlugIn {
 	MenuItem reloadMI = null;
 
 	public ControlPanel() {
-		//requireDoubleClick = !(IJ.isWindows() || IJ.isMacintosh());
-		//Java2.setSystemLookAndFeel();
-	}
+    }
 
 
 	/** Creates a panel with the hierarchical tree structure of ImageJ's commands. */
@@ -539,20 +537,7 @@ public class ControlPanel implements PlugIn {
 	/*                              Helper methods                                  */
 	/* **************************************************************************** */
 
-// 	/**Removes the leading "[" and trailing "]" from the argument
-// 	 *  @param s A string with the structure "[item1,item2,...,itemn]", as returned by
-// 	 *  a call to the <code>toString()</code> method in the <code>javax.swing.tree.TreePath</code> class.
-// 	 *  @return A string with the structure "item1,item2,...,itemn".
-// 	 *  @see javax.swing.tree.TreePath
-// 	 */
-// 	String trimPathString(String s)
-// 	{
-// 		int leftBracket = s.indexOf("[");
-// 		int rightBracket = s.indexOf("]");
-// 		return s.substring(leftBracket+1,rightBracket);
-// 	}
-
-	void showHelp() {
+    void showHelp() {
 		IJ.showMessage("About Control Panel...",
 		"This plugin displays a panel with ImageJ commands in a hierarchical tree structure.\n"+" \n"+
 		"Usage:\n"+" \n"+
@@ -751,12 +736,7 @@ class TreePanel implements
 			helpMI.addActionListener(this);
 			helpMI.setActionCommand("Help");
 			pMenuBar.add(helpMI);
-/*			if(pcp.reloadMI!=null)
-			{
-				pcp.reloadMI.addActionListener(this);
-				pMenuBar.add(pcp.reloadMI);
-			}*/
-		}
+        }
 		else {
 			JMenuItem spMI = new JMenuItem("Show Parent",upIcon);
 			spMI.addActionListener(this);

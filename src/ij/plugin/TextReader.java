@@ -104,9 +104,7 @@ public class TextReader implements PlugIn {
         tok.wordChars(45, 127);
         tok.whitespaceChars(0, 42);
         tok.whitespaceChars(44, 44);
-        //tok.wordChars(33, 127);
-        //tok.whitespaceChars(0, ' ');
-		tok.whitespaceChars(128, 255);
+        tok.whitespaceChars(128, 255);
         tok.eolIsSignificant(true);
 
         while (tok.nextToken() != StreamTokenizer.TT_EOF) {
@@ -142,8 +140,6 @@ public class TextReader implements PlugIn {
         tok.wordChars(45, 127);
         tok.whitespaceChars(0, 42);
         tok.whitespaceChars(44, 44);
-        //tok.wordChars(33, 127);
-        //tok.whitespaceChars(0, ' ');
         tok.whitespaceChars(128, 255);
         //tok.parseNumbers();
 

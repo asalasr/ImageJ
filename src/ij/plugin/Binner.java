@@ -73,8 +73,6 @@ public class Binner implements PlugIn {
 			cal2.pixelHeight *= yshrink;
 			cal2.pixelDepth *= zshrink;
 		}
-		//if (zshrink>1 && imp.isHyperStack())
-		//	imp2 = shrinkHyperstackZ(imp2, zshrink);
 		imp2.setOpenAsHyperStack(imp.isHyperStack());
 		if (method==SUM  && imp2.getBitDepth()>8) {
 			ImageProcessor ip = imp2.getProcessor();

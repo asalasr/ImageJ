@@ -354,23 +354,6 @@ public class GaussianBlur implements ExtendedPlugInFilter, DialogListener {
     /** the above code is equivalent to the following one; but the above code is faster
      *  - above: accesses each pixel in the pixels array only once
      *  - below: accesses each pixel in the pixels array 3 times, more cache misses */
-    /*final static private void downscaleLine(final float[] pixels, final float[] cache, final float[] kernel,
-            final int reduceBy, final int pixel0, final int unscaled0, final int length, final int pointInc, final int newLength) {
-        final int xin = unscaled0 - reduceBy/2;
-        int p = pixel0 + pointInc*xin;
-        final int pLast = pixel0 + pointInc*(length-1);
-        for (int xout=0; xout<newLength; xout++) {
-            float v = 0;
-            for (int x=0; x<reduceBy; x++, p+=pointInc) {
-                int pp = p-pointInc*reduceBy;
-                v += kernel[x] * pixels[pp<pixel0 ? pixel0 : (pp>pLast ? pLast : pp)];
-                v += kernel[x+reduceBy] * pixels[p<pixel0 ? pixel0 : (p>pLast ? pLast : p)];
-                pp = p+pointInc*reduceBy;
-                v += kernel[x+2*reduceBy] * pixels[pp<pixel0 ? pixel0 : (pp>pLast ? pLast : pp)];
-            }
-            cache[xout] = v;
-        }
-    }*/
 
     /* Create a kernel for downscaling. The kernel function preserves
      * norm and 1st moment (i.e., position) and has fixed 2nd moment,

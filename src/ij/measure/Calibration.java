@@ -257,11 +257,7 @@ public class Calibration implements Cloneable {
    			return y/pixelHeight + yOrigin;
 	}
 
-	//public double getX(int x) {return getX((double)x);}
- 	//public double getY(int y) {return getY((double)y);}
- 	//public double getZ(int z) {return getZ((double)z);}
- 	
-  	/** Sets the calibration function,  coefficient table and unit (e.g. "OD"). */
+    /** Sets the calibration function,  coefficient table and unit (e.g. "OD"). */
  	public void setFunction(int function, double[] coefficients, String unit) {
  		setFunction(function, coefficients, unit, false);
  	}

@@ -778,11 +778,7 @@ public class Opener {
 		}
 		if (contiguous &&  info[0].fileType!=FileInfo.RGB48)
 			info[0].nImages = info.length;
-		//if (IJ.debugMode) {
-		//	IJ.log("sameSizeAndType: " + sameSizeAndType);
-		//	IJ.log("contiguous: " + contiguous);
-		//}
-		return sameSizeAndType;
+        return sameSizeAndType;
 	}
 	
 	/** Attemps to open a tiff file as a stack. Returns 
@@ -878,9 +874,7 @@ public class Opener {
 				ip.resetMinAndMax();
 				stack.update(ip);
 			}
-			//if (fi.whiteIsZero)
-			//	new StackProcessor(stack, stack.getProcessor(1)).invert();
-			ImagePlus imp = new ImagePlus(fi.fileName, stack);
+            ImagePlus imp = new ImagePlus(fi.fileName, stack);
 			new FileOpener(fi).setCalibration(imp);
 			imp.setFileInfo(fi);
 			if (fi.info!=null)
@@ -1181,39 +1175,8 @@ public class Opener {
 		} catch(Exception e) {}
 		return null;
 	}
-	
-	/*
-	public static boolean isRGBStack(ImagePlus imp) {
-		if (imp==null)
-			return false;
-		boolean rgb = imp.getStackSize()==3 && imp.getNChannels()==3 && imp.getBitDepth()==8;
-		if (!rgb)
-			return false;
-		for (int i=1; i<=3; i++) {
-			imp.setSlice(i);
-			LUT lut = imp.getProcessor().getLut();
-			if (lut==null) {
-				rgb = false;
-				break;
-			}
-			byte[] bytes = lut.getBytes();				
-			if (bytes==null) {
-				rgb = false;
-				break;
-			}
-			if (!((i==0 && (bytes[255]&255)==255 && (bytes[511]&255)==0 && (bytes[767]&255)==0)
-			|| (i==1 && (bytes[255]&255)==0 && (bytes[511]&255)==255 && (bytes[767]&255)==0)
-			|| (i==2 && (bytes[255]&255)==0 && (bytes[511]&255)==0 && (bytes[767]&255)==255))) {
-				rgb = false;
-				break;
-			}
-		}
-		imp.setSlice(1);
-		return rgb;
-	}
-	*/
 
-	/** Opens a lookup table (LUT) and returns it as a LUT object, or returns null if there is an error.
+    /** Opens a lookup table (LUT) and returns it as a LUT object, or returns null if there is an error.
 	 * @see ij.ImagePlus#setLut
 	*/
 	public static LUT openLut(String filePathOrUrl) {

@@ -770,8 +770,6 @@ class DicomDecoder {
 		if (inSequence && info!=null && vr!=SQ) info = ">" + info;
 		if (info!=null &&  tag!=ITEM) {
 			int group = tag>>>16;
-			//if (group!=previousGroup && (previousInfo!=null&&previousInfo.indexOf("Sequence:")==-1))
-			//	dicomInfo.append("\n");
 			previousGroup = group;
 			previousInfo = info;
 			dicomInfo.append(tag2hex(tag)+info+"\n");
@@ -799,8 +797,6 @@ class DicomDecoder {
 			if (!IJ.debugMode) return null;
 		}
 		String key = i2hex(tag);
-		//while (key.length()<8)
-		//	key = '0' + key;
 		String id = (String)dictionary.get(key);
 		if (id!=null) {
 			if (vr==IMPLICIT_VR && id!=null)
@@ -824,9 +820,7 @@ class DicomDecoder {
 				else
 					for (int i=0; i<elementLength; i++) getByte();
 				break;
-			//case UT:
-				//throw new IOException("ImageJ cannot read UT (unlimited text) DICOMs");
-			case AE: case AS: case AT: case CS: case DA: case DS: case DT:  case IS: case LO: 
+			case AE: case AS: case AT: case CS: case DA: case DS: case DT:  case IS: case LO:
 			case LT: case PN: case SH: case ST: case TM: case UI:
 				value = getString(elementLength);
 				break;

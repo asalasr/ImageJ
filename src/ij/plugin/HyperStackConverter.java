@@ -111,12 +111,8 @@ public class HyperStackConverter implements PlugIn {
 		VirtualStack vstack = (VirtualStack)imp.getStack();
 		vstack.setIndexes(indexes);
 	}
-	
-	//String msg = "This is a custom VirtualStack. To switch to "+orders[order]+" order,\n"
-	//	+"save in TIFF format, import as a TIFF Virtual Stack and\n"
-	//	+"again use the \"Stack to Hyperstack\" command.";
-	
-	private static int[] shuffleVirtual(ImagePlus imp, int order) {
+
+    private static int[] shuffleVirtual(ImagePlus imp, int order) {
 		int n = imp.getStackSize();
 		int nChannels = imp.getNChannels();
 		int nSlices = imp.getNSlices();

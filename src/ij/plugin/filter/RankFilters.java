@@ -461,9 +461,7 @@ public class RankFilters implements ExtendedPlugInFilter, DialogListener {
 						slowestThreadY = arrayMinNonNegative(yForThread); //recheck whether we have to wait
 						if (y - slowestThreadY + kHeight > cacheHeight) {
 							do {
-								//notifyAll();			// avoid deadlock: wake up others waiting
-								//IJ.log("Thread "+threadNumber+" waiting @y="+y+" slowest@y="+slowestThreadY);
-								try {
+                                try {
 									wait();
 									if (nextY.get() < 0) return;
 								} catch (InterruptedException e) {

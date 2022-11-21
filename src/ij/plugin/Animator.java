@@ -51,10 +51,7 @@ public class Animator implements PlugIn {
 			return;
 		}
 
-		//if (swin.getAnimate()) // "stop", "next" and "previous" all stop animation
-		//	stopAnimation();
-
-		if (arg.equals("stop")) {
+        if (arg.equals("stop")) {
 			stopAnimation();
 			return;
 		}

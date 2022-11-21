@@ -247,7 +247,6 @@ public class FolderOpener implements PlugIn, TextListener {
 			int count = 0;
 			int counter = 0;
 			ImagePlus imp = null;
-			boolean firstMessage = true;
 			boolean fileInfoStack = false;
 			
 			// open images as stack

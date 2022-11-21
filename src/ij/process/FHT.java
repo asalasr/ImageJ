@@ -438,9 +438,7 @@ public class FHT extends FloatProcessor {
 				ps[base+col] = (byte)(r+1f); // 1 is min value
 			}
 		}
-		//long t1 = System.currentTimeMillis();
-		//IJ.log(""+(t1-t0));
-		ImageProcessor ip = new ByteProcessor(maxN, maxN, ps);
+        ImageProcessor ip = new ByteProcessor(maxN, maxN, ps);
 		swapQuadrants(ip);
 		return ip;
 	}

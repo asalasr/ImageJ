@@ -426,8 +426,6 @@ public class Projector implements PlugIn {
 			}
 
 			theta = (theta + angleInc)%360;
-			//if (projections.getWindow()==null && IJ.getInstance()!=null && !batchMode)   // is "Projections" window still open?
-			//	{done=true; break;}
 			if (IJ.escapePressed()) {
 				done=true;
 				IJ.beep();
@@ -700,8 +698,6 @@ public class Projector implements PlugIn {
 		int projsize = projwidth * projheight;
 
 		//find z-coordinates of first and last slices
-		//zmax = zcenter + projwidth/2;  
-		//zmin = zcenter - projwidth/2;
 		zmax = (int)((nSlices-1)*sliceInterval+0.5) - zcenter;
 		zmin = -zcenter;
 
@@ -827,8 +823,6 @@ public class Projector implements PlugIn {
 			if (showProgress)
 				IJ.showProgress(y, height2-1);
 		}
-		//imp2.show();
-		//imp2.setCalibration(imp.getCalibration());
 		ImageProcessor ip2 = imp2.getProcessor();
 		ip2.setColorModel(cm);
 		return imp2;

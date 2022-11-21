@@ -95,14 +95,7 @@ public class Concatenator implements PlugIn, ItemListener{
 		return  (new Concatenator()).concatenate(images, false);
 	}
 
-	/*
-	// Why does this not work with Java 6?
-	public static ImagePlus run(ImagePlus... args) {
-		return (new Concatenator()).concatenate(args, false);
-	}
-	*/
-
-	/** Concatenates two or more images or stacks. */
+    /** Concatenates two or more images or stacks. */
 	public ImagePlus concatenate(ImagePlus[] ims, boolean keepIms) {
 		images = ims;
 		imageTitles = new String[ims.length];

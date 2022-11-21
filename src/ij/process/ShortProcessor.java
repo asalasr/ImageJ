@@ -39,8 +39,6 @@ public class ShortProcessor extends ImageProcessor {
 		WritableRaster raster = bi.getRaster();
 		DataBuffer buffer = raster.getDataBuffer();
 		short[] data = ((DataBufferUShort) buffer).getData();
-		//short[] data2 = new short[data.length];
-		//System.arraycopy(data, 0, data2, 0, data.length);
 		init(raster.getWidth(), raster.getHeight(), data, null);
 	}
 

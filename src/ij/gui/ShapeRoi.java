@@ -1037,16 +1037,6 @@ public class ShapeRoi extends Roi {
 		 * For near-vertical polgon edges of 1000 pixels length, the deviation can be >0.8 pixels in x.
 		 * Thus, approximating the shape by a polygon and using the PolygonFiller is more accurate
 		 * (and roughly equally fast). --ms Jan 2018 */
-		/*BufferedImage bi = new BufferedImage(width, height, BufferedImage.TYPE_BYTE_GRAY);
-		Graphics2D g2d = bi.createGraphics();
-		g2d.setColor(Color.white);
-		g2d.transform(AffineTransform.getTranslateInstance(-0.48, -0.49994)); //very inaccurate, only reasonable with "-0.48"
-		g2d.fill(shape);
-		Raster raster = bi.getRaster();
-		DataBufferByte buffer = (DataBufferByte)raster.getDataBuffer();		
-		byte[] mask = buffer.getData();
-		cachedMask = new ByteProcessor(width, height, mask, null);
-		cachedMask.setThreshold(255,255,ImageProcessor.NO_LUT_UPDATE);*/
 		FloatPolygon fpoly = getFloatPolygon(FILL_FLATNESS, true, false, false);
 		PolygonFiller pf = new PolygonFiller(fpoly.xpoints, fpoly.ypoints, fpoly.npoints, (float)(getXBase()-x), (float)(getYBase()-y));
 		mask = pf.getMask(width, height);

@@ -1142,9 +1142,7 @@ public class Toolbar extends Canvas implements MouseListener, MouseMotionListene
 					name = name.endsWith(" ")?name:name+" ";
 					tools[newTool].runMacroTool(name+"Options");
 				} else {
-					//drawTool(newTool, true);
-					//IJ.wait(50);
-					drawTool(newTool, false);
+                    drawTool(newTool, false);
 					runMacroTool(newTool);
 				}
 				return;

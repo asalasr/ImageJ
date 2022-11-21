@@ -64,9 +64,7 @@ public class ImageJ_Updater implements PlugIn {
 		urls[count-2] = URL+"/download/daily-build/ij.jar";
 		versions[count-1] = "previous";
 		urls[count-1] = URL+"/jars/ij2.jar";
-		//for (int i=0; i<count; i++)
-		//	IJ.log(i+" "+versions[i]+"  "+urls[i]);
-		int choice = showDialog(versions);
+        int choice = showDialog(versions);
 		if (choice==-1 || !Commands.closeAll())
 			return;
 		byte[] jar = null;

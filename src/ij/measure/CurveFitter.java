@@ -1139,11 +1139,7 @@ public class CurveFitter implements UserFunction{
 				case EXP_RECOVERY:		 // a*(1-exp(-bx)) + c
 					initialParamVariations[1] = 0.1/(xMax-xMin+1e-100);
 					break;
-				// case CHAPMAN:            // a*(1-exp(-b*x))^c use default (10% of value) for b, c
-				// case POWER:				// ax^b; use default for b
-				// case LOG:				// a*ln(bx); use default for b
-				// case LOG2:				// y = a+b*ln(x-c); use default for c
-				case RODBARD:				// d+(a-d)/(1+(x/c)^b); a and d calculated by regression
+                case RODBARD:				// d+(a-d)/(1+(x/c)^b); a and d calculated by regression
 					initialParamVariations[2] = 0.5*Math.max((xMax-xMin), Math.abs(xMean));
 					initialParamVariations[3] = 0.5*Math.max(yMax-yMin, Math.abs(yMax));
 					break;

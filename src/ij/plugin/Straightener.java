@@ -123,8 +123,6 @@ public class Straightener implements PlugIn {
 		n = p.npoints;
 		ImageProcessor ip = imp.getProcessor();
 		ImageProcessor ip2 = new FloatProcessor(n, width);
-		//ImageProcessor distances = null;
-		//if (IJ.debugMode)  distances = new FloatProcessor(n, 1);
 		float[] pixels = (float[])ip2.getPixels();
 		double x1, y1;
 		// the following will be taken as the previous point; extrapolate back one pixel

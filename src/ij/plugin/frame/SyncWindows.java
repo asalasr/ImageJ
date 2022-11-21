@@ -151,9 +151,7 @@ public class SyncWindows extends PlugInFrame implements
 	* Method to pass on changes of the z-slice of a stack.
 	*/
 	public void displayChanged(DisplayChangeEvent e) {
-		//if (e!=null) throw new IllegalArgumentException();
-		//IJ.log("displayChanged: "+e);
-		if (vwins == null) return;
+        if (vwins == null) return;
 
 		Object source = e.getSource();
 		int type = e.getType();

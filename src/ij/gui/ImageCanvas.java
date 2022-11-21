@@ -208,12 +208,7 @@ public class ImageCanvas extends Canvas implements MouseListener, MouseMotionLis
 	public void update(Graphics g) {
 		paint(g);
 	}
-	
-	//public void repaint() {
-	//	super.repaint();
-	//	//if (IJ.debugMode) IJ.log("repaint: "+imp);
-	//}
-	
+
     public void paint(Graphics g) {
 		// if (IJ.debugMode) IJ.log("paint: "+imp);
 		painted = true;

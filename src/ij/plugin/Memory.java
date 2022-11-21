@@ -15,9 +15,7 @@ public class Memory implements PlugIn {
 
 	public void run(String arg) {
 		changeMemoryAllocation();
-		//IJ.log("setting="+getMemorySetting()/(1024*1024)+"MB");
-		//IJ.log("maxMemory="+maxMemory()/(1024*1024)+"MB");
-	}
+    }
 
 	void changeMemoryAllocation() {
 		IJ.maxMemory(); // forces IJ to cache old limit

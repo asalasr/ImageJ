@@ -306,10 +306,7 @@ public class PlotWindow extends ImageWindow implements ActionListener, ItemListe
 	/** Called when the canvas is resized */
 	void canvasResized() {
 		if (plot == null) return;
-		/*Dimension d1 = getExtraSize();
-		Dimension d2 = plot.getMinimumSize();
-		setMinimumSize(new Dimension(d1.width + d2.width, d1.height + d2.height));*/
-		maximizeCoordinatesLabelWidth();
+        maximizeCoordinatesLabelWidth();
 	}
 
 	/** Maximizes the width for the coordinate&status readout field and its parent bottomPanel */

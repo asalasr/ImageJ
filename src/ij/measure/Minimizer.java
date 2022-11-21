@@ -120,8 +120,6 @@ public class Minimizer {
     private boolean checkEscape;            // whether to stop when Escape is pressed
     private int nextIterationForStatus = 10;// next iteration when we should display the status
     private long startTime;                 // of the whole minimization process
-    /*private Hashtable<Thread, double[][]> simpTable =
-            new Hashtable<Thread, double[][]>(); //for each thread, holds a reference to its simplex */
 
     //-----------------------------------------------------------------------------
 
@@ -416,9 +414,6 @@ public class Minimizer {
     }
     /** Get the full simplex of the current thread. This may be useful if the target function
      *  wants to modify the simplex */
-     /* public double[][] getSimplex() {
-        return simpTable.get(Thread.currentThread());
-     } */
 
     /** One minimization run (including reinitializations of the simplex until the result is stable) */
     private void minimizeOnce(double[] initialParams, double[] initialParamVariations, int seed) {
@@ -473,9 +468,7 @@ public class Minimizer {
         int worst = worstNextBestArray[WORST];
         int nextWorst = worstNextBestArray[NEXT_WORST];
         int best = worstNextBestArray[BEST];
-        //showSimplex(simp, "before minimization, value="+value(simp[best]));
 
-        //String operation="ini";
         int thisNumIter=0;
         while (true) {
             totalNumIter++;                                 // global count over all threads

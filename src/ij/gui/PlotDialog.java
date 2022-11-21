@@ -304,12 +304,8 @@ public class PlotDialog implements DialogListener {
 		if (dialogType == SET_RANGE || dialogType == X_AXIS) {
 			double[] currentMinMax = plot.getLimits();
 			double linXMin = gd.getNextNumber();
-			//if (gd.invalidNumber())
-				//linXMin = Double.NaN;
-			double linXMax = gd.getNextNumber();
-			//if (gd.invalidNumber())
-				//linXMax = Double.NaN;
-			if (linXMin == linXMax) return false;
+            double linXMax = gd.getNextNumber();
+            if (linXMin == linXMax) return false;
 			if (!minMaxSaved) {
 				plot.saveMinMax();		//save for 'Previous Range' in plot menu
 				minMaxSaved = true;
@@ -325,12 +321,8 @@ public class PlotDialog implements DialogListener {
 		if (dialogType == SET_RANGE || dialogType == Y_AXIS) {
 			double[] currentMinMax = plot.getLimits();
 			double linYMin = gd.getNextNumber();
-			//if (gd.invalidNumber())
-				//linYMin = Double.NaN;
-			double linYMax = gd.getNextNumber();
-			//if (gd.invalidNumber())
-				//linYMax = Double.NaN;
-			if (linYMin == linYMax) return false;
+            double linYMax = gd.getNextNumber();
+            if (linYMin == linYMax) return false;
 			if (!minMaxSaved) {
 				plot.saveMinMax();		//save for 'Previous Range' in plot menu
 				minMaxSaved = true;

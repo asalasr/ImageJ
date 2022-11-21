@@ -261,12 +261,7 @@ public class ExtensionDescriptor {
     if (next != ')') {
       vArgs = parseArgumentList(func);
     }
-    
-    //for (int i=0; i < vArgs.length; ++i) {
-    //  Variable v = vArgs[i];
-    //  System.err.println("variable is "+(v!= null?v.toString():"(null)"));
-    //}
-    
+
     Object[] args = new Object[ argTypes.length ];
     if (vArgs==null && argTypes.length>0) {
 		interp.error("Argument expected");

@@ -1,11 +1,6 @@
 package ij.plugin;
 
-//import java.awt.*;
-//import java.awt.image.*;
-//import java.io.*;
 import ij.*;
-//import ij.io.*;
-//import ij.process.*;
 
 
 /** This plugin displays the contents of a text file in a window. */

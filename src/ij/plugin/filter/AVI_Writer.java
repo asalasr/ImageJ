@@ -363,10 +363,6 @@ public class AVI_Writer implements PlugInFilter {
                 dataChunkOffset[iFrame] = (int)(chunkPointer - moviPointer);
                 dataChunkLength[iFrame] = (int)(raFile.getFilePointer() - chunkPointer - 8); //size excludes '00db' and size fields
                 chunkEndWriteSize();            // '00db' or '00dc' chunk finished (nesting level 2)
-                //if (IJ.escapePressed()) {
-                //    IJ.showStatus("Save as Avi INTERRUPTED");
-                //    break;
-                //}
                 iFrame++;
                 if (raFile.getFilePointer() - moviPointer > JUNK_SIZE_THRESHOLD)
                     break;                      // make sure we don't get over 1GB

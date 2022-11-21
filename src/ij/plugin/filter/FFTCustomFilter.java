@@ -62,9 +62,7 @@ public class FFTCustomFilter implements  PlugInFilter, Measurements {
 	void doInverseTransform(FHT fht, ImageProcessor ip) {
 		showStatus("Inverse transform");
 		fht.inverseTransform();
-		//if (fht.quadrantSwapNeeded)
-		//	fht.swapQuadrants();
-		fht.resetMinAndMax();
+        fht.resetMinAndMax();
 		ImageProcessor ip2 = fht;
 		fht.setRoi(rect.x, rect.y, rect.width, rect.height);
 		ip2 = fht.crop();

@@ -28,9 +28,7 @@ public class ListVirtualStack extends VirtualStack implements PlugIn {
 		if (list==null) return;
 		nImages = list.length;
 		labels = new String[nImages];
-		//for (int i=0; i<list.length; i++)
-		//	IJ.log(i+"  "+list[i]);
-		if (list.length==0) {
+        if (list.length==0) {
 			IJ.error("Stack From List", "The file path list is empty");
 			return;
 		}

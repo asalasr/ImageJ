@@ -280,10 +280,7 @@ public class BrushTool extends PlugInTool implements Runnable {
 			width = (int)gd.getNextNumber();
 			if (gd.invalidNumber() || width<0)
 				width = (int)Prefs.get(widthKey, 1);
-			//transparency = (int)gd.getNextNumber();
-			//if (gd.invalidNumber() || transparency<0 || transparency>100)
-			//	transparency = 100;
-			String colorName = gd.getNextChoice();
+            String colorName = gd.getNextChoice();
 			paintOnOverlay = gd.getNextBoolean();
 			Color color = Colors.decode(colorName, null);
 			Toolbar.setForegroundColor(color);

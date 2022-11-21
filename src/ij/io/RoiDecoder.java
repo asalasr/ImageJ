@@ -270,10 +270,7 @@ public class RoiDecoder {
 				}
 				break;
 			case polygon: case freehand: case traced: case polyline: case freeline: case angle: case point:
-					//IJ.log("type: "+type);
-					//IJ.log("n: "+n);
-					//IJ.log("rect: "+left+","+top+" "+width+" "+height);
-					if (n==0 || n<0) break;
+                if (n==0 || n<0) break;
 					int[] x = new int[n];
 					int[] y = new int[n];
 					float[] xf = null;

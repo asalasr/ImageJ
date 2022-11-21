@@ -871,24 +871,7 @@ public class FloatProcessor extends ImageProcessor {
 			return lowerAverage + yFraction * (upperAverage-lowerAverage);
 	}
 
-	/*
-	private final double getInterpolatedPixel(double x, double y, float[] pixels) {
-		int xbase = (int)x;
-		int ybase = (int)y;
-		double xFraction = x - xbase;
-		double yFraction = y - ybase;
-		int offset = ybase * width + xbase;
-		double lowerLeft = pixels[offset];
-		double lowerRight = pixels[offset + 1];
-		double upperRight = pixels[offset + width + 1];
-		double upperLeft = pixels[offset + width];
-		double upperAverage = upperLeft + xFraction * (upperRight - upperLeft);
-		double lowerAverage = lowerLeft + xFraction * (lowerRight - lowerLeft);
-		return lowerAverage + yFraction * (upperAverage - lowerAverage);
-	}
-	*/
-
-	/** Creates a new FloatProcessor containing a scaled copy of this image or selection. */
+    /** Creates a new FloatProcessor containing a scaled copy of this image or selection. */
 	public ImageProcessor resize(int dstWidth, int dstHeight) {
 		if (roiWidth==dstWidth && roiHeight==dstHeight)
 			return crop();

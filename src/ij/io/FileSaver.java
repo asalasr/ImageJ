@@ -682,8 +682,6 @@ public class FileSaver {
 			}
 			fi.fileName = name;
 			fi.directory = directory;
-			//if (fileFormat==fi.TIFF)
-			//	fi.offset = TiffEncoder.IMAGE_START;
 			fi.description = null;
 			imp.setTitle(name);
 			fi.imageSaved = true;

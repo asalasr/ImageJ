@@ -669,9 +669,7 @@ public class ColorThresholder extends PlugInFrame implements PlugIn, Measurement
 		Recorder.recordString("close();\n");
 		Recorder.recordString("selectWindow(\"Result of Result of 0\");\n");
 
-		//if(invert.getState())
-		//   Recorder.recordString("run(\"Invert\");\n");
-		Recorder.recordString("rename(a);\n");
+        Recorder.recordString("rename(a);\n");
 		Recorder.recordString("// Colour Thresholding-------------\n");
 	}
 	
@@ -856,9 +854,7 @@ public class ColorThresholder extends PlugInFrame implements PlugIn, Measurement
 		minSlider3.setValue(iminbri);
 		adjustMaxBri(imaxbri);
 		maxSlider3.setValue(imaxbri);
-		//originalB.setEnabled(true);
-		//IJ.showStatus("done");
-	}
+    }
 
 
 	private boolean checkImage() {
@@ -1309,12 +1305,8 @@ public class ColorThresholder extends PlugInFrame implements PlugIn, Measurement
 		//R = Y + (1.4075 * (V - 128));
 		//G = Y - (0.3455 * (U - 128) - (0.7169 * (V - 128));
 		//B = Y + (1.7790 * (U - 128);
-		//
-		//Y = R *  .299 + G *  .587 + B *  .114;
-		//U = R * -.169 + G * -.332 + B *  .500 + 128.;
-		//V = R *  .500 + G * -.419 + B * -.0813 + 128.;
 
-		int c, x, y, i=0, r, g, b;
+        int c, x, y, i=0, r, g, b;
 		double yf;
 
 		int width=ip.getWidth();
@@ -1332,13 +1324,9 @@ public class ColorThresholder extends PlugInFrame implements PlugIn, Measurement
 				yf = (0.299 * r  + 0.587 * g + 0.114 * b);
 				Y[i] = (byte)((int)Math.floor(yf + 0.5)) ;
 				U[i] = (byte)(128+(int)Math.floor((0.493 *(b - yf))+ 0.5)); 
-				V[i] = (byte)(128+(int)Math.floor((0.877 *(r - yf))+ 0.5)); 
-				
-				//Y[i] = (byte) (Math.floor( 0.299 * r + 0.587 * g + 0.114  * b)+.5);
-				//U[i] = (byte) (Math.floor(-0.169 * r - 0.332 * g + 0.500  * b + 128.0)+.5);
-				//V[i] = (byte) (Math.floor( 0.500 * r - 0.419 * g - 0.0813 * b + 128.0)+.5);
-				
-				i++;
+				V[i] = (byte)(128+(int)Math.floor((0.877 *(r - yf))+ 0.5));
+
+                i++;
 			}
 		}
 	}

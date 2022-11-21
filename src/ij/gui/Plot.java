@@ -3516,10 +3516,6 @@ public class Plot implements Cloneable {
 			if (left != right) {
 				for (int xi = Math.min(left,right); xi <= Math.max(left,right); xi++) {
 					int yi = (int)Math.round(y1 + (double)(y2 - y1)*(double)(xi - x1)/(double)(x2 - x1));
-					/* double yMin = Math.min(yF[i-1], yF[i]);
-					double yMax = Math.max(yF[i-1], yF[i]);
-					if (y < yMin) y = yMin; // dont extrapolate (in case rounding to pixels falls outside [xi, xi+1] interval)
-					if (y > yMax) y = yMax;*/
 					ip.drawLine(xi, y0, xi, yi);
 				}
 			} else {

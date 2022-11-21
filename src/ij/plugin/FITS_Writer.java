@@ -88,37 +88,7 @@ public class FITS_Writer implements PlugIn {
 		appendFile(endFiller, path);
     }
 
-//	/**
-//	 * Creates a FITS header for an image which doesn't have one already.
-//	 */	
-//	void createHeader(String path, ImageProcessor ip, int numBytes) {
-//
-//		String bitperpix = "";
-//		if      (numBytes==2) {bitperpix = "                  16";}
-//		else if (numBytes==4) {bitperpix = "                 -32";}
-//		else if (numBytes==1) {bitperpix = "                   8";}
-// 		appendFile(writeCard("SIMPLE", "                   T", "Created by ImageJ FITS_Writer"), path);
-// 		appendFile(writeCard("BITPIX", bitperpix, "number of bits per data pixel"), path);
-// 		appendFile(writeCard("NAXIS", "                   2", "number of data axes"), path);
-// 		appendFile(writeCard("NAXIS1", "                "+ip.getWidth(), "length of data axis 1"), path);
-// 		appendFile(writeCard("NAXIS2", "                "+ip.getHeight(), "length of data axis 2"), path);
-//        if (bZero != 0 || bScale != 1.0)
-//            {
-//            appendFile(writeCard("BZERO", ""+bZero, "data range offset"), path);
-//            appendFile(writeCard("BSCALE", ""+bScale, "scaling factor"), path);
-//            }
-//
-//        int fillerSize = 2880 - ((numCards*80+3) % 2880);
-//		char[] end = new char[3];
-//		end[0] = 'E'; end[1] = 'N'; end[2] = 'D';
-//		char[] filler = new char[fillerSize];
-//		for (int i = 0; i < fillerSize; i++)
-//			filler[i] = ' ';
-// 		appendFile(end, path);
-// 		appendFile(filler, path);
-//	}
-
-	/**
+    /**
 	 * Writes one line of a FITS header
 	 */ 
 	char[] writeCard(String title, String value, String comment) {

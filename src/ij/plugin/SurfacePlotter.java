@@ -95,9 +95,7 @@ public class SurfacePlotter implements PlugIn {
 	
 	boolean showDialog() {
 		GenericDialog gd = new GenericDialog("Surface Plotter");
-		//gd.addNumericField("Plot Width (pixels):", plotWidth, 0);
-		//gd.addNumericField("Angle (-90-90 degrees):", angleInDegrees, 0);
-		gd.addNumericField("Polygon Multiplier (10-200%):", polygonMultiplier, 0);
+        gd.addNumericField("Polygon Multiplier (10-200%):", polygonMultiplier, 0);
 		gd.addCheckbox("Draw_Wireframe", showWireframe);
 		gd.addCheckbox("Shade", showGrayscale);
 		gd.addCheckbox("Draw_Axis", showAxis);
@@ -108,9 +106,7 @@ public class SurfacePlotter implements PlugIn {
 		gd.showDialog();
 		if (gd.wasCanceled())
 			return false;
-		//plotWidth = (int) gd.getNextNumber();
-		//angleInDegrees = gd.getNextNumber();
-		polygonMultiplier = (int)gd.getNextNumber();
+        polygonMultiplier = (int)gd.getNextNumber();
 		showWireframe = gd.getNextBoolean();
 		showGrayscale = gd.getNextBoolean();
 		showAxis = gd.getNextBoolean();
@@ -294,9 +290,7 @@ public class SurfacePlotter implements PlugIn {
 			min = cal.getCValue((int)min);
 			max = cal.getCValue((int)max);
 		}
-		//if (invertedPixelValues)
-		//	{double t=max; max=min; min=t;}
-		ip2.setAntialiasedText(true);
+        ip2.setAntialiasedText(true);
 		s = String.valueOf( (double) Math.round(max*10)/10);
 		w =  ip.getFontMetrics().stringWidth(s);
 		h =  ip.getFontMetrics().getHeight();
@@ -398,11 +392,8 @@ public class SurfacePlotter implements PlugIn {
 		ipText.rotate(-a);
 		ipText.setRoi(tW/2-ipW/2, 0, ipW, ipH);
 		ipText = ipText.crop();
-		
-		//new ImagePlus("test", ipText).show();
-		//ip.copyBits(ipText, x, y, Blitter.COPY_TRANSPARENT);
 
-		return ipText;
+        return ipText;
 	}
 	
 	void clearAboveProfile(ImageProcessor ipProfile, double[] profile, int width, double yinc2) {

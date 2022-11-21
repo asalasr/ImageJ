@@ -995,17 +995,6 @@ public class ImageReader {
 		return output.toByteArray();
 	}
 
-	/*
-	void debug(String label, InputStream in) {
-		int offset = -1;
-		if (in instanceof RandomAccessStream) {
-			try {
-				offset = ((RandomAccessStream)in).getFilePointer();
-			} catch(Exception e) {}
-		}
-		IJ.log(label+": debug: offset="+offset+", fi="+fi);
-	}
-	*/
 }
 
 

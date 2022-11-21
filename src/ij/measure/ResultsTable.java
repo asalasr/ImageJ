@@ -1225,8 +1225,6 @@ public class ResultsTable implements Cloneable {
 		int firstRow = allNumericHeadings?0:1;
 		boolean labels = firstColumn==1 && headings[1].equals("Label");
 		int type=getTableType(path, lines, firstRow, cellSeparator);
-		//if (!labels && (type==1||type==2))
-		//	labels = true;
 		int labelsIndex = (type==2)?0:1;
 		if (lines[0].startsWith("\t")) {
 			String[] headings2 = new String[headings.length+1];

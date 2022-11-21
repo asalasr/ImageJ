@@ -100,9 +100,7 @@ public class PGM_Reader extends ImagePlus implements PlugIn {
         InputStream is = new BufferedInputStream(new FileInputStream(path));
         try {
 			StreamTokenizer tok = new StreamTokenizer(is); //deprecated, but it works
-			//Reader r = new BufferedReader(new InputStreamReader(is));
-			//StreamTokenizer tok = new StreamTokenizer(r);  // doesn't work
-			tok.resetSyntax();
+            tok.resetSyntax();
 			tok.wordChars(33, 255);
 			tok.whitespaceChars(0, ' ');
 			tok.parseNumbers();

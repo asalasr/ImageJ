@@ -515,28 +515,8 @@ public class Selection implements PlugIn, Measurements {
 	}
 	
 	// Finds the index of the upper right point that is guaranteed to be on convex hull
-	/*int findFirstPoint(int[] xCoordinates, int[] yCoordinates, int n, ImagePlus imp) {
-		int smallestY = imp.getHeight();
-		int x, y;
-		for (int i=0; i<n; i++) {
-			y = yCoordinates[i];
-			if (y<smallestY)
-			smallestY = y;
-		}
-		int smallestX = imp.getWidth();
-		int p1 = 0;
-		for (int i=0; i<n; i++) {
-			x = xCoordinates[i];
-			y = yCoordinates[i];
-			if (y==smallestY && x<smallestX) {
-				smallestX = x;
-				p1 = i;
-			}
-		}
-		return p1;
-	}*/
-	
-	void createMask(ImagePlus imp) {
+
+    void createMask(ImagePlus imp) {
 		Roi roi = imp.getRoi();
 		boolean useInvertingLut = Prefs.useInvertingLut;
 		Prefs.useInvertingLut = false;

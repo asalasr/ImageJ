@@ -50,11 +50,7 @@ public class ImageInfo implements PlugIn {
 		path = Prefs.getCustomPrefsPath();
 		if (path!=null)
 			s += "*Custom preferences*: "+ path +"\n";
-		//if (IJ.isMacOSX()) {
-		//	String time = " ("+ImageWindow.setMenuBarTime+"ms)";
-		//	s += "SetMenuBarCount: "+Menus.setMenuBarCount+time+"\n";
-		//}
-		new TextWindow("Info", s, 600, 300);
+        new TextWindow("Info", s, 600, 300);
 	}
 
 	public String getImageInfo(ImagePlus imp) {
@@ -494,10 +490,7 @@ public class ImageInfo implements PlugIn {
 
 	private void showInfo(ImagePlus imp, String info, int width, int height) {
 		new TextWindow("Info for "+imp.getTitle(), info, width, height);
-		//Editor ed = new Editor();
-		//ed.setSize(width, height);
-		//ed.create("Info for "+imp.getTitle(), info);
-	}
+    }
 
     private String d2s(double n) {
 		return IJ.d2s(n,Tools.getDecimalPlaces(n));

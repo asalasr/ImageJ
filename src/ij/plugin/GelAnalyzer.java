@@ -187,25 +187,8 @@ public class GelAnalyzer implements PlugIn {
 			isVertical = false;
 		} else
 			isVertical = true;
-			
-		/*
-		if ( (isVertical && (rect.height/rect.width)<2 ) || (!isVertical && (rect.width/rect.height)<2 ) ) {
-			GenericDialog gd = new GenericDialog("Lane Orientation");
-			String[] orientations = {"Vertical","Horizontal"};
-			int defaultOrientation = isVertical?0:1;
-			gd.addChoice("Lane Orientation:", orientations, orientations[defaultOrientation]);
-			gd.showDialog();
-			if (gd.wasCanceled())
-				return;
-			String orientation = gd.getNextChoice();
-			if(orientation.equals(orientations[0]))
-				isVertical=true;
-			else
-				isVertical=false;
-		}
-		*/
 
-		IJ.showStatus("Lane 1 selected ("+(isVertical?"vertical":"horizontal")+" lanes)");
+        IJ.showStatus("Lane 1 selected ("+(isVertical?"vertical":"horizontal")+" lanes)");
 		firstRect = rect;
 		nLanes = 1;
 		saveNLanes = 0;

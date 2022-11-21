@@ -314,21 +314,7 @@ public class StackProcessor {
         } //z
     }
 
-    /*
-    private ArrayUtil getNeighborhood(int[] ker, int nbval, int x, int y, int z, float radx, float rady, float radz) {
-        int vx = (int)Math.ceil(radx);
-        int vy = (int)Math.ceil(rady);
-        int vz = (int)Math.ceil(radz);
-        int x0=x-vx, y0=y-vy, z0=z-vz;
-        int w=vx*2, h=vy*2, d=vz*2;
-		if (x0<0 || x0+w>stack.getWidth() || y0<0 || y0+h>stack.getHeight() || z0<0 || z0+d>stack.size())
-			return getEdgeNeighborhood(ker, nbval, x, y, z, radx, rady, radz);
-        voxels = stack.getVoxels(x0, y0, z0, w, h, d, voxels);
-		return new ArrayUtil(voxels);
-    }
-    */
-
-    /**
+	/**
      * Gets the neighboring attribute of the Image3D with a kernel as a array
      *
      * @param ker The kernel array (>0 ok)

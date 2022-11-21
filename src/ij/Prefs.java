@@ -325,18 +325,7 @@ public class Prefs {
 		return null;
 	}
 
-	/*
-	static void dumpPrefs() {
-		System.out.println("");
-		Enumeration e = ijPrefs.keys();
-		while (e.hasMoreElements()) {
-			String key = (String) e.nextElement();
-			System.out.println(key+": "+ijPrefs.getProperty(key));
-		}
-	}
-	*/
-
-	static String loadAppletProps(InputStream f, Applet applet) {
+    static String loadAppletProps(InputStream f, Applet applet) {
 		if (f==null)
 			return PROPS_NAME+" not found in ij.jar";
 		try {
@@ -373,9 +362,7 @@ public class Prefs {
 		String path = Menus.getImageJPath();
 		if (path==null) {
 			String ijPath = getPluginsDirProperty();
-			//if (ijPath==null)
-			//	ijPath = ImageJDir;
-			if (ijPath==null)
+            if (ijPath==null)
 				ijPath = System.getProperty("user.dir");
 			return ijPath + File.separator;
 		} else
@@ -566,9 +553,7 @@ public class Prefs {
 		multiPointMode = (options&MULTI_POINT_MODE)!=0;
 		rotateYZ = (options&ROTATE_YZ)!=0;
 		flipXZ = (options&FLIP_XZ)!=0;
-		//dontSaveHeaders = (options&DONT_SAVE_HEADERS)!=0;
-		//dontSaveRowNumbers = (options&DONT_SAVE_ROW_NUMBERS)!=0;
-		noClickToGC = (options&NO_CLICK_TO_GC)!=0;
+        noClickToGC = (options&NO_CLICK_TO_GC)!=0;
 		avoidResliceInterpolation = (options&AVOID_RESLICE_INTERPOLATION)!=0;
 		keepUndoBuffers = (options&KEEP_UNDO_BUFFERS)!=0;
 		

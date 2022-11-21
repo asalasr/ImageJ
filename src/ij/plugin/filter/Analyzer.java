@@ -279,21 +279,7 @@ public class Analyzer implements PlugInFilter, Measurements {
 			reset();
 		saveResults(stats, roi);
 	}
-		
-	/*
-	void showHeadings() {
-		String[] headings = rt.getHeadings();
-		int columns = headings.length;
-		if (columns==0)
-			return;
-		IJ.log("Headings: "+headings.length+" "+rt.getColumnHeading(ResultsTable.LAST_HEADING));
-		for (int i=0; i<columns; i++) {
-			if (headings[i]!=null)
-				IJ.log("   "+i+" "+headings[i]+" "+rt.getColumnIndex(headings[i]));
-		}
-	}
-	*/
-	
+
 	boolean reset() {
 		boolean ok = true;
 		if (rt.size()>0 && !disableReset)
@@ -813,9 +799,6 @@ public class Analyzer implements PlugInFilter, Measurements {
 				if (rImp!=null) s = rImp.getTitle();				
 			} else
 				s = imp.getTitle();
-			//int len = s.length();
-			//if (len>4 && s.charAt(len-4)=='.' && !Character.isDigit(s.charAt(len-1)))
-			//	s = s.substring(0,len-4); 
 			Roi roi = imp.getRoi();
 			String roiName = roi!=null?roi.getName():null;
 			if (roiName!=null && !roiName.contains(".")) {

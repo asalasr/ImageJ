@@ -740,28 +740,7 @@ public class ContrastAdjuster extends PlugInDialog implements Runnable,
 		ip.snapshot();
 		ip.setMinAndMax(0, 255);
 		reset(imp, ip);
-		/*
-		double min = imp.getDisplayRangeMin();
-		double max = imp.getDisplayRangeMax();
- 		ip.setRoi(imp.getRoi());
- 		ip.reset();
-		if (channels!=7)
-			((ColorProcessor)ip).setMinAndMax(min, max, channels);
-		else
-			ip.setMinAndMax(min, max);
-		ip.reset(ip.getMask());
-		imp.changes = true;
-		previousImageID = 0;
-	 	((ColorProcessor)ip).caSnapshot(false);
-		setup();
-		if (Recorder.record) {
-			if (Recorder.scriptMode())
-				Recorder.recordCall("IJ.run(imp, \"Apply LUT\", \"\");");
-			else
-				Recorder.record("run", "Apply LUT");
-		}
-		*/
-	}
+    }
 
 	private void applyRGBStack(ImagePlus imp) {
 		double min = imp.getDisplayRangeMin();

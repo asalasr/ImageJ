@@ -244,9 +244,6 @@ public class Arrow extends Line {
 		double head = headSize/7.0;
 		double lineWidth = width + head + headShaftRatio;
 		if (lineWidth<1.0) lineWidth = 1.0;
-		//if (width<1) width=1;
-		//if (head<1) head=1;
-		//IJ.log(getStrokeWidth()+"  "+IJ.d2s(width,2)+"  "+IJ.d2s(head,2)+"  "+IJ.d2s(headShaftRatio,2)+"  "+IJ.d2s(lineWidth,2)+"  "+IJ.d2s(width*head,2));
 		return lineWidth;
 	}
 	

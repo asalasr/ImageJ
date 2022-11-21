@@ -77,29 +77,6 @@ public class Benchmark implements PlugInFilter{
 		IJ.showStatus((counter++) + "/"+72);
 	}
 
-	/*
-	void showBenchmarkResults() {
-		TextWindow tw = new TextWindow("ImageJ Benchmark", "", 450, 450);
-		tw.setFont(new Font("Monospaced", Font.PLAIN, 12));
-		tw.append("Time in seconds needed to perform 62 image processing");
-		tw.append("operations on the 512x512 \"Mandrill\" image");
-		tw.append("---------------------------------------------------------");
-		tw.append(" 1.6   Pentium 4/3.0, WinXP  Java 1.3.1");
-		tw.append(" 2.4   PPC G5/2.0x2, MacOSX  Java 1.3.1");
-		tw.append(" 3.3   Pentium 4/1.4, Win2K  IE 5.0");
-		tw.append(" 5.3   Pentium 3/750, Win98  IE 5.0");
-		tw.append(" 5.6   Pentium 4/1.4, Win2K  JDK 1.3");
-		tw.append(" 6.0   Pentium 3/750, Win98  Netscape 4.7");
-		tw.append(" 8.6   PPC G4/400, MacOS     MRJ 2.2");
-		tw.append("  11   Pentium 2/400, Win95  JRE 1.1.8");
-		tw.append("  14   PPC G3/300, MacOS     MRJ 2.1");
-		tw.append("  38   PPC 604/132, MacOS    MRJ 2.1");
-		tw.append("  89   Pentium/100, Win95    JRE 1.1.6");
-		tw.append("  96   Pentium/400, Linux    Sun JDK 1.2.2 (17 with JIT)");
-		tw.append("");
-	}
-	*/
-
 }
 
 

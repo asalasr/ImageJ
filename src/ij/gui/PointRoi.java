@@ -401,8 +401,6 @@ public class PointRoi extends PolygonRoi {
 			counters[nPoints-1] = (short)counter;
 			if (imp!=null)
 					positions[nPoints-1] = imp.getStackSize()>1 ? imp.getCurrentSlice() : 0;
-			//if (positions[nPoints-1]==0 || positions[nPoints-1]==1 || counters[nPoints-1]==0)
-			//	IJ.log("incrementCounter: "+nPoints+" "+" "+positions[nPoints-1]+" "+counters[nPoints-1]+" "+imp);
 			if (nPoints+1==counters.length) {
 				short[] temp = new short[counters.length*2];
 				System.arraycopy(counters, 0, temp, 0, counters.length);

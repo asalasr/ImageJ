@@ -275,23 +275,7 @@ public class ProfilePlot {
 		return values2;
 	}
 
-	/*
-	double[] getIrregularProfile(Roi roi, ImageProcessor ip, Calibration cal) {
-		boolean interpolate = PlotWindow.interpolate;
-		FloatPolygon p = roi.getFloatPolygon();
-		float[][] xyPoints = ((PolygonRoi)roi).getEquidistantPoints(p.xpoints, p.ypoints, p.npoints, 1.0, imp);
-		float[] xPoints = xyPoints[0];
-		float[] yPoints = xyPoints[1];
-		double[] values = new double[xPoints.length];
-		for (int i=0; i<xPoints.length; i++)
-			values[i] = interpolate ?
-				ip.getInterpolatedValue(xPoints[i], yPoints[i]) :
-				ip.getPixelValue((int)Math.round(xPoints[i]), (int)Math.round(yPoints[i]));
-		return values;
-	}
-	*/
-
-	double[] getWideLineProfile(ImagePlus imp, int lineWidth) {
+    double[] getWideLineProfile(ImagePlus imp, int lineWidth) {
 		Roi roi = imp.getRoi();
 		if (roi == null) return null;	//roi may have changed asynchronously
 		if ((roi instanceof PolygonRoi) && roi.getState()==Roi.CONSTRUCTING)

@@ -901,9 +901,7 @@ public class AVI_Reader extends VirtualStack implements PlugIn {
 			int dwFlags = readInt();
 			int dwOffset = readInt();
 			int dwSize = readInt();
-			//IJ.log("idx1: dwOffset=0x"+Long.toHexString(dwOffset));
-			//IJ.log("moviPosition=0x"+Long.toHexString(moviPosition));
-			if ((dwChunkId==type0xdb || dwChunkId==type0xdc) && dwSize>0) {
+            if ((dwChunkId==type0xdb || dwChunkId==type0xdc) && dwSize>0) {
 				if (offset < 0) {		// find out what the offset refers to
 					long temp = raFile.getFilePointer();
 					for (int i=0; i<offsetsToTry.length; i++) {
@@ -1135,9 +1133,7 @@ public class AVI_Reader extends VirtualStack implements PlugIn {
 	private Object readFrame (RandomAccessFile rFile, long filePos, int size)
 			throws Exception, IOException {
 		rFile.seek(filePos);
-		//if (verbose)
-		//IJ.log("virtual AVI: readFrame @"+posSizeString(filePos, size)+" varlength="+variableLength);
-		if (variableLength)					//JPEG or PNG-compressed frames
+        if (variableLength)					//JPEG or PNG-compressed frames
 			return readCompressedFrame(rFile, size);
 		else
 			return readFixedLengthFrame(rFile, size);
@@ -1349,10 +1345,7 @@ public class AVI_Reader extends VirtualStack implements PlugIn {
 	 *	u, v should be between -112 and +112
 	 */
 	final void writeRGBfromYUV(int y, int u, int v, int[]pixels, int intArrayIndex) {
-		//int r = (int)(1.164*(y-16)+1.596*v+0.5);
-		//int g = (int)(1.164*(y-16)-0.391*u-0.813*v+0.5);
-		//int b = (int)(1.164*(y-16)+2.018*u+0.5);
-		int r = (9535*y + 13074*v -148464) >> 13;
+        int r = (9535*y + 13074*v -148464) >> 13;
 		int g = (9535*y - 6660*v - 3203*u -148464) >> 13;
 		int b = (9535*y + 16531*u -148464) >> 13;
 		if (r>255) r=255; if (r<0) r=0;

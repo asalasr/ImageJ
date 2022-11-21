@@ -615,9 +615,7 @@ public class RoiManager extends PlugInFrame implements ActionListener, ItemListe
 			}
 		}
 		ImagePlus imp = WindowManager.getCurrentImage();
-		//if (count>1 && index.length==1 && imp!=null)
-		//	imp.deleteRoi();
-		updateShowAll();
+        updateShowAll();
 		if (record())
 			Recorder.record("roiManager", "Delete");
 		return true;
@@ -1409,20 +1407,7 @@ public class RoiManager extends PlugInFrame implements ActionListener, ItemListe
 				String path = directory + title + "." + format;
 				IJ.saveAs(images[i], format, path);
 			}
-			/*
-			if (options.contains("show")) {
-				int width = 1;
-				int height = 1;
-				for (int i=0; i<rois.length; i++) {
-					Rectangle bounds = rois[i].getBounds();
-					if (bounds.width>width) width = bounds.width;
-					if (bounds.height>height) height = bounds.height;
-				}
-				imp = FolderOpener.open(directory, width, height, "virtual");
-				if (imp!=null) imp.show();
-			}
-			*/
-		}
+        }
 	}
 
 	/** Sets the group for the selected ROIs. */ 
@@ -2289,10 +2274,7 @@ public class RoiManager extends PlugInFrame implements ActionListener, ItemListe
 		} else if (cmd.equals("reset")) {
 			reset();
 		} else if (cmd.equals("debug")) {
-			//IJ.log("Debug: "+debugCount);
-			//for (int i=0; i<debugCount; i++)
-			//	IJ.log(debug[i]);
-		} else if (cmd.equals("enable interrupts")) {
+        } else if (cmd.equals("enable interrupts")) {
 			ignoreInterrupts = false;
 		} else if (cmd.equals("remove channel info")) {
 			removePositions(CHANNEL);
@@ -2698,9 +2680,7 @@ public class RoiManager extends PlugInFrame implements ActionListener, ItemListe
 			Roi roi = (Roi)rois[i].clone();
 			if (!Prefs.showAllSliceOnly && !IJ.isMacro())
 				roi.setPosition(0);
-			//if (roi.getStrokeWidth()==1)
-			//	roi.setStrokeWidth(0);
-			overlay.add(roi);
+            overlay.add(roi);
 		}
 		if (overlayTemplate!=null)
 			overlay.drawLabels(overlayTemplate.getDrawLabels());
